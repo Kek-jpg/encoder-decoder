@@ -1,0 +1,2 @@
+D:\Documents\GitHub\encoder-decoder\encoder-decoder\Debug\encoder-decoder.exe
+D:\Documents\GitHub\encoder-decoder\encoder-decoder\Debug\encoder-decoder.pdb
