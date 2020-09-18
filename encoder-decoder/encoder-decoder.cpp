@@ -7,6 +7,7 @@ using namespace std;
 string encode(string word)
 {
     char alphabetical[26] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+    transform(word.begin(), word.end(), word.begin(), ::tolower);
     int k = 0;
     for (int i = 0; i < word.size(); i++)
     {
@@ -80,22 +81,27 @@ int main()
     setlocale(LC_ALL, "ru");
     int theSwitch;
     string word;
-    cout << "Введите 1 для шифровки предолжения\nВведите 2 для расшифровки предложения\n";
-    cin >> theSwitch;
-    switch (theSwitch)
+    while (true)
     {
-    case 1:
-        cout << "Введите предложение для шифровки (на английском языке): ";
-        cin.get();
-        getline(cin, word);
-        cout << "Зашифрованное предложение: " + encode(word);
-        break;
-    case 2:
-        cout << "Введите предложение для расшифровки (на английском языке): ";
-        cin.get();
-        getline(cin, word);
-        cout << "Расшифрованное предложение: " + decode(word);
-        break;
+        cout << "Введите 1 для шифровки предолжения\nВведите 2 для расшифровки предложения\nВведите 3 для выхода из приложения\n";
+        cin >> theSwitch;
+        switch (theSwitch)
+        {
+        case 1:
+            cout << "Введите предложение для шифровки (на английском языке): ";
+            cin.get();
+            getline(cin, word);
+            cout << "Зашифрованное предложение: " + encode(word) << endl;
+            break;
+        case 2:
+            cout << "Введите предложение для расшифровки (на английском языке): ";
+            cin.get();
+            getline(cin, word);
+            cout << "Расшифрованное предложение: " + decode(word) << endl;
+            break;
 
+        }
+        if (theSwitch == 3)
+            break;
     }
 }
