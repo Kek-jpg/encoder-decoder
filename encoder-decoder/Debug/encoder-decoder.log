@@ -1,3 +1,4 @@
 ﻿  encoder-decoder.cpp
-D:\Documents\GitHub\encoder-decoder\encoder-decoder\encoder-decoder.cpp(14,23): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Documents\GitHub\encoder-decoder\encoder-decoder\encoder-decoder.cpp(15,23): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Documents\GitHub\encoder-decoder\encoder-decoder\encoder-decoder.cpp(46,23): warning C4018: <: несоответствие типов со знаком и без знака
   encoder-decoder.vcxproj -> D:\Documents\GitHub\encoder-decoder\encoder-decoder\Debug\encoder-decoder.exe
