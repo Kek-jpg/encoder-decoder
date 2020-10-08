@@ -76,6 +76,7 @@ string decode(string word)
     return word;
 }
 
+
 int main()
 {  
     setlocale(LC_ALL, "ru");
@@ -84,24 +85,45 @@ int main()
     while (true)
     {
         cout << "Введите 1 для шифровки предолжения\nВведите 2 для расшифровки предложения\nВведите 3 для выхода из приложения\n";
-        cin >> theSwitch;
-        switch (theSwitch)
-        {
-        case 1:
-            cout << "Введите предложение для шифровки (на английском языке): ";
-            cin.get();
-            getline(cin, word);
-            cout << "Зашифрованное предложение: " + encode(word) << endl;
-            break;
-        case 2:
-            cout << "Введите предложение для расшифровки (на английском языке): ";
-            cin.get();
-            getline(cin, word);
-            cout << "Расшифрованное предложение: " + decode(word) << endl;
-            break;
 
+        bool success = false;
+        while (!success)
+        {
+            cin >> theSwitch;
+            if (cin.good())
+            {
+                cout << "Вы ввели значение: " << theSwitch << endl;
+                success = true;
+            }
+            else
+            {
+                cout << "Значение введено неверно. Повторите ввод:" << endl;
+                cin.clear();
+                cin.ignore(32767, '\n');
+            }
         }
-        if (theSwitch == 3)
-            break;
+        
+
+        if (theSwitch == 1 || theSwitch == 2 || theSwitch == 3)
+        {
+            switch (theSwitch)
+            {
+            case 1:
+                cout << "Введите предложение для шифровки (на английском языке): ";
+                cin.get();
+                getline(cin, word);
+                cout << "Зашифрованное предложение: " + encode(word) << endl;
+                break;
+            case 2:
+                cout << "Введите предложение для расшифровки (на английском языке): ";
+                cin.get();
+                getline(cin, word);
+                cout << "Расшифрованное предложение: " + decode(word) << endl;
+                break;
+            case 3:
+                cout << "До свидания!" << endl;
+                exit(0);
+            }
+        }
     }
 }
