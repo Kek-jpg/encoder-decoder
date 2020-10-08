@@ -4,12 +4,12 @@
 #include <algorithm>
 using namespace std;
 
-string encode(string word)
+string encode(string word) // функция шифровки
 {
     char alphabetical[26] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
     transform(word.begin(), word.end(), word.begin(), ::tolower);
     int k = 0;
-    for (int i = 0; i < word.size(); i++)
+    for (int i = 0; i < word.size(); i++) // цикл работы шифратора
     {
         for (int j = 0; j < 26; j++)
         {
@@ -40,12 +40,12 @@ string encode(string word)
     return word;
 }
 
-string decode(string word)
+string decode(string word) // функция дешифровки
 {
     char alphabetical[26] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
     transform(word.begin(), word.end(), word.begin(), ::tolower);
     int k = 0;
-    for (int i = 0; i < word.size(); i++)
+    for (int i = 0; i < word.size(); i++) // цикл работы дешифратора
     {
         for (int j = 0; j < 26; j++)
         {
@@ -82,12 +82,12 @@ int main()
     setlocale(LC_ALL, "ru");
     int theSwitch;
     string word;
-    while (true)
+    while (true) // бесконечный цикл, осуществляющий диалог с пользователем, пока пользователь не захочет выйти
     {
         cout << "Введите 1 для шифровки предолжения\nВведите 2 для расшифровки предложения\nВведите 3 для выхода из приложения\n";
 
         bool success = false;
-        while (!success)
+        while (!success) // проверка пользовательского ввода на верный тип данных + проверка на целое число
         {
             cin >> theSwitch;
             if (cin.good())
@@ -104,7 +104,7 @@ int main()
         }
         
 
-        if (theSwitch == 1 || theSwitch == 2 || theSwitch == 3)
+        if (theSwitch == 1 || theSwitch == 2 || theSwitch == 3) // проверка ввода на соответствующие программе значения
         {
             switch (theSwitch)
             {
@@ -124,6 +124,10 @@ int main()
                 cout << "До свидания!" << endl;
                 exit(0);
             }
+        }
+        else
+        {
+            cout << "Вы ввели неверное значение, попробуйте ещё раз" << endl;
         }
     }
 }
